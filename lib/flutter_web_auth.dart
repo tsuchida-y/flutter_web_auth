@@ -17,8 +17,8 @@ class _OnAppLifecycleResumeObserver extends WidgetsBindingObserver {
 }
 
 class FlutterWebAuth {
-  static const MethodChannel _channel = const MethodChannel('flutter_web_auth');
-  static RegExp _schemeRegExp = new RegExp(r"^[a-z][a-z0-9+.-]*$");
+  static const MethodChannel _channel = MethodChannel('flutter_web_auth');
+  static RegExp _schemeRegExp = new RegExp(r"^[a-z][a-z0-9+.-]*$");//URL schemeの正規表現
 
   static final _OnAppLifecycleResumeObserver _resumedObserver = _OnAppLifecycleResumeObserver(() {
     _cleanUpDanglingCalls(); // unawaited
@@ -31,9 +31,9 @@ class FlutterWebAuth {
   /// [callbackUrlScheme] should be a string specifying the scheme of the url that the page will redirect to upon successful authentication.
   /// [preferEphemeral] if this is specified as `true`, an ephemeral web browser session will be used where possible (`FLAG_ACTIVITY_NO_HISTORY` on Android, `prefersEphemeralWebBrowserSession` on iOS/macOS)
   static Future<String> authenticate({required String url, required String callbackUrlScheme, bool? preferEphemeral}) async {
-    if (!_schemeRegExp.hasMatch(callbackUrlScheme)) {
-      throw ArgumentError.value(callbackUrlScheme, 'callbackUrlScheme', 'must be a valid URL scheme');
-    }
+    // if (!_schemeRegExp.hasMatch(callbackUrlScheme)) {//正規表現にマッチしない場合
+    //   throw ArgumentError.value(callbackUrlScheme, 'callbackUrlScheme', 'must be a valid URL scheme');
+    // }
 
     WidgetsBinding.instance.removeObserver(_resumedObserver); // safety measure so we never add this observer twice
     WidgetsBinding.instance.addObserver(_resumedObserver);

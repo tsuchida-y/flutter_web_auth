@@ -52,7 +52,7 @@ class FlutterWebAuthWeb {
         } on FormatException {}
       }
     }
-    throw new PlatformException(
+    throw PlatformException(
         code: 'error', message: 'Iterable window.onMessage is empty');
   }
 }

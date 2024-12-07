@@ -91,8 +91,8 @@ class _MyAppState extends State<MyApp> {
   }
 
   void authenticate() async {
-    final url = 'http://localtest.me:43823/';
-    final callbackUrlScheme = 'foobar';
+    const url = 'http://localtest.me:43823/';
+    const callbackUrlScheme = 'foobar';
 
     try {
       final result = await FlutterWebAuth.authenticate(url: url, callbackUrlScheme: callbackUrlScheme);
