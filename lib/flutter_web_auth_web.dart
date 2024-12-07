@@ -30,9 +30,9 @@ class FlutterWebAuthWeb {
   }
 
   static Future<String> _authenticate(String url) async {
-    context.callMethod('open', [url]);
-    await for (MessageEvent messageEvent in window.onMessage) {
-      if (messageEvent.origin == Uri.base.origin) {
+    context.callMethod('open', [url]);//指定されたURLを開く。認証ページにリダイレクトされる
+    await for (MessageEvent messageEvent in window.onMessage) {//メッセージイベントを待機。
+      if (messageEvent.origin == Uri.base.origin) {//信頼できるソースからのメッセージのみを受け入れる
         final flutterWebAuthMessage = messageEvent.data['flutter-web-auth'];
         if (flutterWebAuthMessage is String) {
           return flutterWebAuthMessage;
