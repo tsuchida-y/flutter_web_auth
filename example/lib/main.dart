@@ -116,8 +116,8 @@ class _MyAppState extends State<MyApp> {
               Text('Status: $_status\n'),
               const SizedBox(height: 80),
               ElevatedButton(
-                child: Text('Authenticate'),
-                onPressed: () { this.authenticate(); },
+                child: const Text('Authenticate'),
+                onPressed: () { authenticate(); },
               ),
             ],
           ),

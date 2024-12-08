@@ -1,3 +1,20 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-  package="com.linusu.flutter_web_auth">
+  package="com.linusu.flutter_web_auth"
+  xmlns:tools="http://schemas.android.com/tools">
+      <application
+        android:label="hackathon_mobileapp_202412"
+        tools:replace="android:label"
+        android:icon="@mipmap/ic_launcher">
+        <activity
+            android:name=".MainActivity"
+            android:launchMode="singleTop"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <category android:name="android.intent.category.BROWSABLE"/>
+                <data android:scheme="yourapp"/>
+            </intent-filter>
+        </activity>
+    </application>
 </manifest>
